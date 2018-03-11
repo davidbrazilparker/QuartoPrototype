@@ -1,10 +1,12 @@
 public class gamePiece
 {
 	private int[] attributes;
+	private String ascii;
 
-	public gamePiece(int[] attributesArray)
+	public gamePiece(int[] attributesArray, String ascii)
 	{
 		this.attributes = attributesArray;
+		this.ascii = ascii;
 	}
 
 	public int[] getAttributes()
@@ -27,5 +29,10 @@ public class gamePiece
 		}
 		result.append("]");
 		return result.toString();
+	}
+
+	public String getGamePieceArt()
+	{
+		return "TODO";
 	}
 }

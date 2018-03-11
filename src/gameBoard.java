@@ -116,4 +116,10 @@ public class gameBoard
         return false;
     }
 
+    public void printCurrentBoard()
+    {
+        StringBuilder currentBoard = new StringBuilder();
+
+    }
+
 }
