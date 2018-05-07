@@ -33,6 +33,11 @@ public class gamePiece
 
 	public String getGamePieceArt()
 	{
-		return "TODO";
+		return this.ascii;
+	}
+
+	public void setGamePieceArt(String asciiArt)
+	{
+		this.ascii = asciiArt;
 	}
 }
