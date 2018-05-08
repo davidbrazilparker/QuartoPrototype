@@ -191,23 +191,26 @@ public class gameBoard
 
     public void play()
     {
+	String currentPlayer = null;
 	List<gamePiece> piecesCopy = pieces;    
 	Scanner scan = new Scanner(System.in);
 	while(!checkVictory())
 	{
+		currentPlayer = (currentPlayer == null || currentPlayer.equals("Player 2")) ? "Player 1" : "Player 2";
 		printCurrentBoard();
-		System.out.println("Please select a valid piece from the selection provided");
+		System.out.println(currentPlayer+", select a valid piece from the selection provided");
 		printAvailablePieces();
 		int piece = scan.nextInt();
 		while(checkPieceValid(piece))
 		{
-			System.out.println("Please select a valid piece from the selection provided");
+			System.out.println(currentPlayer+", select a valid piece from the selection provided");
 			printAvailablePieces();
 			piece = scan.nextInt();
 		}
 		currentPiece = pieces.get(piece);
 		pieces.set(piece,defaultPiece);
-		System.out.println("Please select a valid space to place your piece");
+		currentPlayer = (currentPlayer == null || currentPlayer.equals("Player 2")) ? "Player 1" : "Player 2";
+		System.out.println(currentPlayer+", select a valid space to place your piece");
 		printCurrentBoard();
 		currentPiece.printAsciiArt();
 		System.out.println("Select x value");
@@ -218,7 +221,7 @@ public class gameBoard
 		int y = piece;
 		while(checkSpotValid(x,y))
 		{
-			System.out.println("Please select a valid space to place your piece");
+			System.out.println(currentPlayer+", select a valid space to place your piece");
 			printCurrentBoard();
 			currentPiece.printAsciiArt();
 			System.out.println("Select x value");
@@ -229,9 +232,11 @@ public class gameBoard
 			y = piece;
 		}
 		placeGamePiece(x,y,currentPiece);
-		printCurrentBoard();
+		currentPlayer = (currentPlayer == null || currentPlayer.equals("Player 2")) ? "Player 1" : "Player 2";
 	}
+	currentPlayer = (currentPlayer == null || currentPlayer.equals("Player 2")) ? "Player 1" : "Player 2";
     	printCurrentBoard();
+	System.out.println("WINNER: " + currentPlayer);
     }
 
     public boolean checkPieceValid(int index)
