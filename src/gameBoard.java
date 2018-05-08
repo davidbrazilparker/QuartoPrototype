@@ -206,7 +206,7 @@ public class gameBoard
 			piece = scan.nextInt();
 		}
 		currentPiece = pieces.get(piece);
-		pieces.set(piece,null);
+		pieces.set(piece,defaultPiece);
 		System.out.println("Please select a valid space to place your piece");
 		printCurrentBoard();
 		currentPiece.printAsciiArt();
@@ -237,11 +237,11 @@ public class gameBoard
     public boolean checkPieceValid(int index)
     {
     	gamePiece current = pieces.get(index);
-	return (current == null) ? false : true;
+	return (current == defaultPiece) ? true : false;
     }
 
     public boolean checkSpotValid(int xIndex, int yIndex)
     {
-    	return (board[xIndex][yIndex].getAttributes()==defaultAttributes) ? true : false;	
+    	return (board[xIndex][yIndex].getAttributes()==defaultAttributes) ? false : true;	
     }
 }
