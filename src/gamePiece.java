@@ -1,9 +1,9 @@
 public class gamePiece
 {
 	private int[] attributes;
-	private String ascii;
+	private String[] ascii;
 
-	public gamePiece(int[] attributesArray, String ascii)
+	public gamePiece(int[] attributesArray, String[] ascii)
 	{
 		this.attributes = attributesArray;
 		this.ascii = ascii;
@@ -31,13 +31,21 @@ public class gamePiece
 		return result.toString();
 	}
 
-	public String getGamePieceArt()
+	public String[] getGamePieceArt()
 	{
 		return this.ascii;
 	}
 
-	public void setGamePieceArt(String asciiArt)
+	public void setGamePieceArt(String[] asciiArt)
 	{
 		this.ascii = asciiArt;
+	}
+
+	public void printAsciiArt()
+	{
+		for(int i = 0; i < 3; i++)
+		{
+			System.out.println(ascii[i]);
+		}
 	}
 }
